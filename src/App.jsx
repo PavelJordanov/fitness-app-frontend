@@ -19,12 +19,13 @@ function App() {
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/training' element={<UserProgram />} />
-          <Route path='/phases' element={<PhaseSelection />} />
           <Route path='/weeks' element={<WeekSelection />} />
           <Route path='/workout' element={<Workout />} />
           <Route path='/exercise' element={<ExerciseDetail />} />
           <Route path='/nutrition' element={<NutritionLogger />} />
           <Route path='/profile' element={<Profile />} />
+          <Route path='/phases/:phaseId' element={<PhaseSelection/>}/>
+          <Route path='/phases/:phaseId/weeks/:weekId' element={<WeekSelection/>}/>
         </Routes>
       </div>
       <BottomNav />
