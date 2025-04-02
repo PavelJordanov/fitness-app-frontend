@@ -26,6 +26,7 @@ function App() {
           <Route path='/profile' element={<Profile />} />
           <Route path='/phases/:phaseId' element={<PhaseSelection/>}/>
           <Route path='/phases/:phaseId/weeks/:weekId' element={<WeekSelection/>}/>
+          <Route path='/phases/:phaseId/weeks/:weekId/workout/:workoutId' element={<Workout/>}/>
         </Routes>
       </div>
       <BottomNav />
