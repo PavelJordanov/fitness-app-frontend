@@ -11,7 +11,7 @@ export default function PhaseSelection() {
     return (
         <div
         style={{
-        height: '100vh',
+        padding: '2rem',
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',

@@ -15,13 +15,13 @@ export default function WeekSelection () {
     return (
         <div
         style={{
-        height: '100vh',
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        justifyContent: 'center',
-        textAlign: 'center',
-        gap: '1rem',
+            padding: '2rem',
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            justifyContent: 'center',
+            textAlign: 'center',
+            gap: '1rem',
         }}>
             <h2>Week {weekId}</h2>
 

@@ -18,6 +18,7 @@ export default function UserProgram() {
             }}>
             <div
             style={{
+                padding: '2rem',
                 display: 'flex',
                 flexDirection: 'column',
                 alignItems: 'center',
@@ -26,7 +27,7 @@ export default function UserProgram() {
                 textAlign: 'center',
                 width: '100%',
             }}>
-                <h2 style={{ margin: 0 }}>Let's Get To Work</h2>
+                <h1 style={{ margin: 0 }}>Let's Get To Work</h1>
                 <button onClick={() => handlePhaseClick(1)}>Phase 1</button>
                 <button onClick={() => handlePhaseClick(2)}>Phase 2</button>
                 <button onClick={() => handlePhaseClick(3)}>Phase 3</button>
