@@ -12,6 +12,19 @@ export default function UserProgram() {
         textAlign: 'center',
         gap: '1.5rem'
       }}>
+
+        <img 
+            src="/public/Logo.jpeg"
+            alt="Nutra App Logo"
+            style={{
+                position: 'absolute',
+                top: '20px', 
+                left: '20px', 
+                width: '100px', 
+                height: 'auto'
+            }}
+        />
+        
         <h1>Welcome to the Nutra App</h1>
         
         <p>Your personalized fitness and nutrition hub.</p>

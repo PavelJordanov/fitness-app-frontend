@@ -32,6 +32,7 @@ function App() {
           <Route path='/phases/:phaseId' element={<PhaseSelection/>}/>
           <Route path='/phases/:phaseId/weeks/:weekId' element={<WeekSelection/>}/>
           <Route path='/phases/:phaseId/weeks/:weekId/workout/:workoutId' element={<Workout/>}/>
+          <Route path="/phases/:phaseId/weeks/:weekId/workout/:workoutId/exercise/:exerciseId" element={<ExerciseDetail />} />
           <Route path="/profile/userinfo" element={<UserInfo />} />
           <Route path="/profile/plan" element={<Plan />} />
           <Route path="/profile/subscriptions" element={<Subscriptions />} />
