@@ -14,6 +14,8 @@ export default function ExerciseDetail() {
     ]);
     const [confirmation, setConfirmation] = useState(false); // Handle confirmation state
 
+    const isFormComplete = sets.every(set => set.reps && set.weight);
+
     const handleInputChange = (index, field, value) => {
         const updatedSets = [...sets];
         updatedSets[index][field] = value;
@@ -21,7 +23,15 @@ export default function ExerciseDetail() {
     };
 
     const handleConfirm = () => {
+        const isComplete = sets.every(set => set.reps && set.weight);
+        
+        if (!isComplete) {
+            alert("Please fill in reps and weight for all sets before confirming.");
+            return;
+        }
+
         const confirmed = window.confirm("Are you sure your numbers are correct?");
+        
         if (!confirmed) {
           // Optionally reset inputs if user clicks "No"
           setSets([
@@ -87,7 +97,7 @@ export default function ExerciseDetail() {
                 </button>
             ) : (
                 <div style={{ color: 'green', marginTop: '1rem' }}>
-                    <p>Progressing to the next workout...</p>
+                    <p>Progressing to the next exercise...</p>
                 </div>
             )}
 
