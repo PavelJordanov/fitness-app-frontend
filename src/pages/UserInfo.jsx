@@ -12,7 +12,7 @@ export default function UserInfo() {
     return (
         <div style={{paddding: '2rem', color: 'white'}}>
             <h1>👤 User Info</h1>
-            <ul style={{listStyle:'none', padding: 0}}>
+            <ul style={{listStyle:'none', padding: '2rem'}}>
             <li><strong>Name:</strong> {user.firstname} {user.lastname}</li>
             <li><strong>Username:</strong> {user.username}</li>
             <li><strong>DOB:</strong> {user.dob}</li>

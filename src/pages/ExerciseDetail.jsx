@@ -21,12 +21,25 @@ export default function ExerciseDetail() {
     };
 
     const handleConfirm = () => {
-        // Once confirmed, navigate to the next workout
-        setConfirmation(true);
-        // To simulate the transition to the next workout after confirmation
-        setTimeout(() => {
-            navigate(`/phases/${phaseId}/weeks/${weekId}/workout/${parseInt(workoutId) + 1}`);
-        }, 1500); // Wait 1.5 seconds for the transition
+        const isConfirmed = window.confirm("Are you sure you want to confirm your workout data?");
+        
+        if (isConfirmed) {
+            // Save data, then confirm
+            setConfirmation(true);
+
+            // Simulate moving to the next workout after confirmation
+            setTimeout(() => {
+                navigate(`/phases/${phaseId}/weeks/${weekId}/workout/${parseInt(workoutId)}`); // Move to next workout
+            }, 1500); // Wait 1.5 seconds for transition
+        } else {
+            // If 'No', reset values to empty
+            setSets([
+                { set: 1, reps: "", weight: "" },
+                { set: 2, reps: "", weight: "" },
+                { set: 3, reps: "", weight: "" },
+                { set: 4, reps: "", weight: "" }
+            ]);
+        }
     };
 
     return (
@@ -74,8 +87,8 @@ export default function ExerciseDetail() {
                 </div>
             )}
 
-            <button onClick={() => navigate(`/phases/${phaseId}/weeks/${weekId}`)}>
-                Back to Workouts
+            <button onClick={() => navigate(`/phases/${phaseId}/weeks/${weekId}/workout/${workoutId}`)}>
+                Back to Exercises
             </button>
         </div>
     );

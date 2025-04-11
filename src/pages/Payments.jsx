@@ -15,9 +15,24 @@ export default function Payments() {
     ];
   
     return (
-      <div style={{ padding: '2rem', color: 'white' }}>
+      <div style={{ padding: '2rem',
+        color: 'white',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        textAlign: 'center',
+        minHeight: '100vh' }}>
+
         <h1>💳 Payment History</h1>
-        <table style={{ width: '100%', maxWidth: '600px', borderCollapse: 'collapse' }}>
+        
+        <table style={{ width: '100%',
+          maxWidth: '800px',
+          borderCollapse: 'collapse',
+          marginTop: '2rem',
+          backgroundColor: '#1a1a1a',
+          color: 'white',
+          borderRadius: '8px',
+          overflow: 'hidden' }}>
           <thead>
             <tr style={{ backgroundColor: '#333' }}>
               <th>Payment ID</th>
