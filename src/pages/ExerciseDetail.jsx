@@ -90,20 +90,42 @@ export default function ExerciseDetail() {
                     </div>
                 ))}
             </div>
-
-            {!confirmation ? (
-                <button onClick={handleConfirm} style={{ marginTop: '1rem' }}>
-                    Confirm
+            
+            <div style={{ display: 'flex', gap: '1rem', marginTop: '2rem' }}>
+                <button
+                    onClick={() => navigate(`/phases/${phaseId}/weeks/${weekId}/workout/${workoutId}`)}
+                    style={{
+                    backgroundColor: '#111',
+                    color: 'white',
+                    padding: '0.75rem 1.5rem',
+                    border: 'none',
+                    borderRadius: '6px',
+                    cursor: 'pointer',
+                    minWidth: '140px',
+                    }}>
+                    Back to Exercises
                 </button>
-            ) : (
-                <div style={{ color: 'green', marginTop: '1rem' }}>
-                    <p>Progressing to the next exercise...</p>
-                </div>
-            )}
 
-            <button onClick={() => navigate(`/phases/${phaseId}/weeks/${weekId}/workout/${workoutId}`)}>
-                Back to Exercises
-            </button>
+                {!confirmation ? (
+                    <button
+                        onClick={handleConfirm}
+                        style={{
+                        backgroundColor: '#28a745', // green
+                        color: 'white',
+                        padding: '0.75rem 1.5rem',
+                        border: 'none',
+                        borderRadius: '6px',
+                        cursor: 'pointer',
+                        minWidth: '140px',
+                    }}>
+                        Done
+                    </button>
+                ) : (
+                    <div style={{ color: 'green', alignSelf: 'center' }}>
+                        <p>Progressing to the next exercise...</p>
+                    </div>
+                )}
+            </div>
         </div>
     );
 }

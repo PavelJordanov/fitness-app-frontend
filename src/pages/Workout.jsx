@@ -1,27 +1,11 @@
-import { useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 
 export default function Workout() {
     const { phaseId, weekId, workoutId } = useParams();
     const navigate = useNavigate();
 
-    const [progress, setProgress] = useState({
-        1: 0,
-        2: 0,
-        3: 0,
-        4: 0
-    });
-
     const handleExerciseClick = (exerciseId) => {
         navigate(`/phases/${phaseId}/weeks/${weekId}/workout/${workoutId}/exercise/${exerciseId}`);
-    };
-
-    const handleCompletion = (exerciseId) => {
-        // Set the progress to 100% once the user confirms completion
-        setProgress((prev) => ({
-            ...prev,
-            [exerciseId]: 100
-        }));
     };
 
     return (
@@ -40,16 +24,16 @@ export default function Workout() {
 
             <div style={{ marginTop: '2rem', display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
 
-            {[1, 2, 3, 4].map((n) => {
+            {[1, 2, 3, 4].map((exerciseId) => {
                 const completed = JSON.parse(localStorage.getItem('completedExercises') || '{}');
-                const key = `workout-${workoutId}-exercise-${(parseInt(workoutId) - 1) * 4 + n}`;
+                const key = `workout-${workoutId}-exercise-${exerciseId}`;
                 const isComplete = completed[key];
                 const progressValue = isComplete ? 100 : 0;
 
                 return (
-                    <div key={n}>
+                    <div key={exerciseId}>
                     <button
-                        onClick={() => handleExerciseClick(n)}
+                        onClick={() => handleExerciseClick(exerciseId)}
                         style={{
                         width: '200px',
                         padding: '0.5rem',
@@ -60,13 +44,14 @@ export default function Workout() {
                         borderRadius: '5px',
                         cursor: 'pointer',
                         boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
-                        }}>
-                        Exercise {n} <br />
+                        }}
+                    >
+                        Exercise {exerciseId} <br />
                         <progress value={progressValue} max={100} />
                     </button>
                     </div>
                 );
-            })}
+                })}
             </div>
 
             <button
