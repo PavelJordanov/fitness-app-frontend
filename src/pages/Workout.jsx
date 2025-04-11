@@ -40,29 +40,33 @@ export default function Workout() {
 
             <div style={{ marginTop: '2rem', display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
 
-                {[1, 2, 3, 4].map((n) => {
-                    return (
-                        <div key={n}>
-                            <button
-                                onClick={() => handleExerciseClick(n)}
-                                style={{
-                                    width: '200px',
-                                    padding: '0.5rem',
-                                    margin: '0.5rem 0',
-                                    backgroundColor: '#444',
-                                    color: 'white',
-                                    border: 'none',
-                                    borderRadius: '5px',
-                                    cursor: 'pointer',
-                                    boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
-                                }}
-                            >
-                                Exercise {n} <br />
-                                <progress value={progress[n]} max={100} />
-                            </button>
-                        </div>
-                    );
-                })}
+            {[1, 2, 3, 4].map((n) => {
+                const completed = JSON.parse(localStorage.getItem('completedExercises') || '{}');
+                const key = `workout-${workoutId}-exercise-${(parseInt(workoutId) - 1) * 4 + n}`;
+                const isComplete = completed[key];
+                const progressValue = isComplete ? 100 : 0;
+
+                return (
+                    <div key={n}>
+                    <button
+                        onClick={() => handleExerciseClick(n)}
+                        style={{
+                        width: '200px',
+                        padding: '0.5rem',
+                        margin: '0.5rem 0',
+                        backgroundColor: '#444',
+                        color: 'white',
+                        border: 'none',
+                        borderRadius: '5px',
+                        cursor: 'pointer',
+                        boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
+                        }}>
+                        Exercise {n} <br />
+                        <progress value={progressValue} max={100} />
+                    </button>
+                    </div>
+                );
+            })}
             </div>
 
             <button
